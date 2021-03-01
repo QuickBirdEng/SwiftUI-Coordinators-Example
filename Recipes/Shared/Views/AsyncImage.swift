@@ -1,8 +1,9 @@
 //
 //  AsyncImage.swift
-//  Recipes
+//  QuickGit
 //
 //  Created by Paul Kraft on 04.03.20.
+//  Copyright © 2020 QuickBird Studios. All rights reserved.
 //
 
 import Combine

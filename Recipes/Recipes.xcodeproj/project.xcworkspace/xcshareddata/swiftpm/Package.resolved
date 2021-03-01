@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "XUI",
+        "repositoryURL": "https://github.com/quickbirdstudios/XUI",
+        "state": {
+          "branch": "main",
+          "revision": "7ce50402040a7e1068f79c258ce3375c9680a47e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

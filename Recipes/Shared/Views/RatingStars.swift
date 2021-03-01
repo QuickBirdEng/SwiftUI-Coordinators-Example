@@ -1,6 +1,6 @@
 //
 //  RatingStars.swift
-//  Recipes
+//  Recipes (iOS)
 //
 //  Created by Paul Kraft on 02.01.21.
 //

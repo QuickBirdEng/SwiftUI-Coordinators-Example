@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import XUI
 
 struct RecipeList: View {
 
     // MARK: Stored Properties
 
-    @ObservedObject var viewModel: RecipeListViewModel
+    @Store var viewModel: RecipeListViewModel
 
     // MARK: Views
 

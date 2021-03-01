@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import XUI
 
 struct HomeCoordinatorView: View {
 
     // MARK: Stored Properties
 
-    @ObservedObject var coordinator: HomeCoordinator
+    @Store var coordinator: HomeCoordinator
 
     // MARK: Views
 

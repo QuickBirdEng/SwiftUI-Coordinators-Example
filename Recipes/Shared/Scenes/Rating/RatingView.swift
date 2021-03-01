@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import XUI
 
 struct RatingView: View {
 
@@ -38,7 +39,7 @@ struct RatingView: View {
 
     // MARK: Stored Properties
 
-    @ObservedObject var viewModel: RatingViewModel
+    @Store var viewModel: RatingViewModel
 
     // MARK: Views
 

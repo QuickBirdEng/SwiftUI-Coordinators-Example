@@ -1,6 +1,6 @@
 //
 //  SafariView.swift
-//  Recipes
+//  Recipes (iOS)
 //
 //  Created by Paul Kraft on 04.01.21.
 //
@@ -24,6 +24,17 @@ struct SafariView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ controller: SFSafariViewController, context: Context) {
 
+    }
+
+}
+
+extension View {
+
+    func safariSheet(with binding: Binding<URL?>) -> some View {
+        sheet(item: binding) { url in
+            SafariView(url: url)
+                .edgesIgnoringSafeArea(.all)
+        }
     }
 
 }

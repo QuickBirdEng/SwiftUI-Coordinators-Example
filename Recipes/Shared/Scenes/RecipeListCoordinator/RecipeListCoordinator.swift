@@ -6,51 +6,27 @@
 //
 
 import SwiftUI
+import XUI
 
-class RecipeListCoordinator: ObservableObject, Identifiable {
+protocol RecipeListCoordinator: ViewModel {
+    var viewModel: RecipeListViewModel! { get }
+    var detailViewModel: RecipeViewModel? { get set }
+    var ratingViewModel: RatingViewModel? { get set }
 
-    // MARK: Stored Properties
+    func filter(_ recipe: Recipe) -> Bool
+    func open(_ recipe: Recipe)
+    func openRatings(for recipe: Recipe)
+    func closeRatings()
+    func open(_ url: URL)
+}
 
-    @Published var viewModel: RecipeListViewModel!
-    @Published var detailViewModel: RecipeViewModel?
-    @Published var ratingViewModel: RatingViewModel?
+extension RecipeListCoordinator {
 
-    private let recipeService: RecipeService
-    private unowned let parent: HomeCoordinator
-
-    // MARK: Initialization
-
-    init(title: String,
-         recipeService: RecipeService,
-         parent: HomeCoordinator,
-         filter: @escaping (Recipe) -> Bool) {
-        self.parent = parent
-        self.recipeService = recipeService
-
-        self.viewModel = .init(
-            title: title,
-            recipeService: recipeService,
-            coordinator: self,
-            filter: filter
-        )
-    }
-
-    // MARK: Methods
-
-    func open(_ recipe: Recipe) {
-        self.detailViewModel = .init(recipe: recipe, coordinator: self)
-    }
-
-    func openRatings(for recipe: Recipe) {
-        self.ratingViewModel = .init(recipe: recipe, recipeService: recipeService, coordinator: self)
-    }
-
-    func closeRatings() {
-        self.ratingViewModel = nil
-    }
-
-    func open(_ url: URL) {
-        self.parent.open(url)
+    @DeepLinkableBuilder
+    var children: [DeepLinkable] {
+        viewModel
+        detailViewModel
+        ratingViewModel
     }
 
 }

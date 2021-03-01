@@ -6,30 +6,11 @@
 //
 
 import Foundation
+import XUI
 
-class RecipeViewModel: ObservableObject, Identifiable {
+protocol RecipeViewModel: ViewModel {
+    var recipe: Recipe { get }
 
-    // MARK: Stored Properties
-
-    @Published var recipe: Recipe
-
-    private unowned let coordinator: RecipeListCoordinator
-
-    // MARK: Initialization
-
-    init(recipe: Recipe, coordinator: RecipeListCoordinator) {
-        self.coordinator = coordinator
-        self.recipe = recipe
-    }
-
-    // MARK: Methods
-
-    func openRatings() {
-        self.coordinator.openRatings(for: recipe)
-    }
-
-    func open(_ url: URL) {
-        self.coordinator.open(url)
-    }
-
+    func openRatings()
+    func open(_ url: URL)
 }

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import XUI
 
 struct RecipeView<RatingModifier: ViewModifier>: View {
 
     // MARK: Stored Properties
 
-    @ObservedObject var viewModel: RecipeViewModel
+    @Store var viewModel: RecipeViewModel
     let ratingModifier: RatingModifier
 
     // MARK: Views

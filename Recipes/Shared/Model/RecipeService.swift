@@ -117,6 +117,12 @@ class RecipeService {
 
     // MARK: Methods
 
+    func fetchRecipe(id: String, _ completion: @escaping (Recipe?) -> Void) {
+        fetchRecipes { recipes in
+            completion(recipes.first { $0.id.uuidString == id })
+        }
+    }
+
     func fetchRecipes(_ completion: @escaping ([Recipe]) -> Void) {
         completion(
             Mirror(reflecting: self)

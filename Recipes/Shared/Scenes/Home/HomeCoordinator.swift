@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import XUI
 
 enum HomeTab {
     case meat
@@ -14,42 +15,22 @@ enum HomeTab {
     case settings
 }
 
-class HomeCoordinator: ObservableObject {
+protocol HomeCoordinator: ViewModel {
+    var tab: HomeTab { get set }
+    var veggieCoordinator: RecipeListCoordinator! { get }
+    var meatCoordinator: RecipeListCoordinator! { get }
+    var openedURL: URL? { get set }
 
-    // MARK: Stored Properties
+    func startDeepLink(from url: URL)
+    func open(_ url: URL)
+}
 
-    @Published var tab = HomeTab.meat
-    @Published var veggieCoordinator: RecipeListCoordinator!
-    @Published var meatCoordinator: RecipeListCoordinator!
+extension HomeCoordinator {
 
-    @Published var openedURL: URL?
-
-    private let recipeService: RecipeService
-
-    // MARK: Initialization
-
-    init(recipeService: RecipeService) {
-        self.recipeService = recipeService
-
-        self.veggieCoordinator = .init(
-            title: "Veggie",
-            recipeService: recipeService,
-            parent: self,
-            filter: { $0.isVegetarian }
-        )
-
-        self.meatCoordinator = .init(
-            title: "Meat",
-            recipeService: recipeService,
-            parent: self,
-            filter: { !$0.isVegetarian }
-        )
-    }
-
-    // MARK: Methods
-
-    func open(_ url: URL) {
-        self.openedURL = url
+    @DeepLinkableBuilder
+    var children: [DeepLinkable] {
+        veggieCoordinator
+        meatCoordinator
     }
 
 }

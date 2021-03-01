@@ -1,17 +1,18 @@
 //
 //  SettingsView.swift
-//  Recipes
+//  Recipes (iOS)
 //
 //  Created by Paul Kraft on 01.01.21.
 //
 
 import SwiftUI
+import XUI
 
 struct SettingsView: View {
 
     // MARK: Stored Properties
 
-    @ObservedObject var coordinator: HomeCoordinator
+    @Store var coordinator: HomeCoordinator
 
     // MARK: Views
 
