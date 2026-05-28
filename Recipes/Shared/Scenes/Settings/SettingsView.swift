@@ -21,7 +21,7 @@ struct SettingsView: View {
             Text("Nymphenburger Str. 13-15")
             Text("80335 Munich")
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .contentShape(Rectangle())
         .onTapGesture(perform: openWebsite)
         .navigationTitle("Settings")

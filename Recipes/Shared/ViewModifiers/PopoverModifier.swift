@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// Presents `content(item)` as a popover whenever `item` is non-nil.
+/// Pair with `SheetModifier` to let a coordinator pick the presentation
+/// style for a leaf view based on device or size class.
 struct PopoverModifier<Item: Identifiable, Destination: View>: ViewModifier {
 
     // MARK: Stored Properties

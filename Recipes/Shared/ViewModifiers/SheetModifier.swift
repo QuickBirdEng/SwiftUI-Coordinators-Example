@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/// Presents `content(item)` as a sheet whenever `item` is non-nil.
+///
+/// Exists as a `ViewModifier` so a coordinator can inject either this or
+/// `PopoverModifier` into a leaf view, switching the presentation style
+/// (e.g. by device or size class) without the leaf knowing about it.
 struct SheetModifier<Item: Identifiable, Destination: View>: ViewModifier {
 
     // MARK: Stored Properties
