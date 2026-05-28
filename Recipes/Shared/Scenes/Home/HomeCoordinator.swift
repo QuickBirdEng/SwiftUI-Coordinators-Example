@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  HomeCoordinator.swift
 //  Recipes
 //
 //  Created by Paul Kraft on 11.12.20.

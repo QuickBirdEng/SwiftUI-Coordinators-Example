@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-extension Identifiable where ID: Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
 class RecipeListViewModel: ObservableObject {
 
     // MARK: Stored Properties
